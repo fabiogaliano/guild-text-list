@@ -346,29 +346,29 @@ nav[aria-label="Servers sidebar"] .rfoGFa_guildRow[class*="circleIconButton"] {
 }
 `);
 var styles_module_default = {
-	"folderDot": "rfoGFa_folderDot",
-	"sidebar": "rfoGFa_sidebar",
-	"folderBgHidden": "rfoGFa_folderBgHidden",
-	"folderRow": "rfoGFa_folderRow",
-	"folderItemsHidden": "rfoGFa_folderItemsHidden",
-	"guildRow": "rfoGFa_guildRow",
-	"folderHeaderHidden": "rfoGFa_folderHeaderHidden",
-	"separatorLine": "rfoGFa_separatorLine",
 	"folderLabel": "rfoGFa_folderLabel",
-	"menuIn": "rfoGFa_menuIn",
-	"addServerBottom": "rfoGFa_addServerBottom",
+	"folderChildren": "rfoGFa_folderChildren",
+	"rootMenuButton": "rfoGFa_rootMenuButton",
+	"guildRow": "rfoGFa_guildRow",
+	"folderRow": "rfoGFa_folderRow",
+	"sidebar": "rfoGFa_sidebar",
+	"rootMenu": "rfoGFa_rootMenu",
 	"folderIconHidden": "rfoGFa_folderIconHidden",
+	"folderDot": "rfoGFa_folderDot",
+	"addServerBottom": "rfoGFa_addServerBottom",
+	"folderBgHidden": "rfoGFa_folderBgHidden",
+	"guildLabel": "rfoGFa_guildLabel",
+	"separator": "rfoGFa_separator",
+	"folderItemsHidden": "rfoGFa_folderItemsHidden",
+	"folderHeaderHidden": "rfoGFa_folderHeaderHidden",
+	"hiddenItem": "rfoGFa_hiddenItem",
+	"separatorLine": "rfoGFa_separatorLine",
+	"resizeHandle": "rfoGFa_resizeHandle",
+	"folderCaret": "rfoGFa_folderCaret",
 	"slideIn": "rfoGFa_slideIn",
 	"folderButtonHidden": "rfoGFa_folderButtonHidden",
-	"hiddenItem": "rfoGFa_hiddenItem",
 	"folderOpenWrapperHidden": "rfoGFa_folderOpenWrapperHidden",
-	"rootMenu": "rfoGFa_rootMenu",
-	"separator": "rfoGFa_separator",
-	"rootMenuButton": "rfoGFa_rootMenuButton",
-	"folderCaret": "rfoGFa_folderCaret",
-	"folderChildren": "rfoGFa_folderChildren",
-	"resizeHandle": "rfoGFa_resizeHandle",
-	"guildLabel": "rfoGFa_guildLabel"
+	"menuIn": "rfoGFa_menuIn"
 };
 
 //#endregion
