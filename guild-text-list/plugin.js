@@ -346,29 +346,29 @@ nav[aria-label="Servers sidebar"] .rfoGFa_guildRow[class*="circleIconButton"] {
 }
 `);
 var styles_module_default = {
-	"folderItemsHidden": "rfoGFa_folderItemsHidden",
-	"resizeHandle": "rfoGFa_resizeHandle",
-	"folderHeaderHidden": "rfoGFa_folderHeaderHidden",
-	"guildLabel": "rfoGFa_guildLabel",
-	"folderBgHidden": "rfoGFa_folderBgHidden",
-	"folderIconHidden": "rfoGFa_folderIconHidden",
-	"folderChildren": "rfoGFa_folderChildren",
 	"sidebar": "rfoGFa_sidebar",
-	"separatorLine": "rfoGFa_separatorLine",
-	"folderRow": "rfoGFa_folderRow",
-	"guildRow": "rfoGFa_guildRow",
-	"menuIn": "rfoGFa_menuIn",
-	"slideIn": "rfoGFa_slideIn",
-	"rootMenuButton": "rfoGFa_rootMenuButton",
-	"rootMenu": "rfoGFa_rootMenu",
-	"folderOpenWrapperHidden": "rfoGFa_folderOpenWrapperHidden",
-	"hiddenItem": "rfoGFa_hiddenItem",
 	"folderLabel": "rfoGFa_folderLabel",
-	"separator": "rfoGFa_separator",
-	"folderDot": "rfoGFa_folderDot",
-	"folderButtonHidden": "rfoGFa_folderButtonHidden",
 	"addServerBottom": "rfoGFa_addServerBottom",
-	"folderCaret": "rfoGFa_folderCaret"
+	"folderRow": "rfoGFa_folderRow",
+	"slideIn": "rfoGFa_slideIn",
+	"separatorLine": "rfoGFa_separatorLine",
+	"folderItemsHidden": "rfoGFa_folderItemsHidden",
+	"guildRow": "rfoGFa_guildRow",
+	"folderBgHidden": "rfoGFa_folderBgHidden",
+	"menuIn": "rfoGFa_menuIn",
+	"folderDot": "rfoGFa_folderDot",
+	"guildLabel": "rfoGFa_guildLabel",
+	"folderChildren": "rfoGFa_folderChildren",
+	"folderOpenWrapperHidden": "rfoGFa_folderOpenWrapperHidden",
+	"resizeHandle": "rfoGFa_resizeHandle",
+	"rootMenuButton": "rfoGFa_rootMenuButton",
+	"folderButtonHidden": "rfoGFa_folderButtonHidden",
+	"folderIconHidden": "rfoGFa_folderIconHidden",
+	"separator": "rfoGFa_separator",
+	"folderCaret": "rfoGFa_folderCaret",
+	"folderHeaderHidden": "rfoGFa_folderHeaderHidden",
+	"rootMenu": "rfoGFa_rootMenu",
+	"hiddenItem": "rfoGFa_hiddenItem"
 };
 
 //#endregion
@@ -824,9 +824,14 @@ const applyStoredRootOrder = (store$1) => {
 	if (!(rootContainer instanceof HTMLElement)) return;
 	isApplyingOrder = true;
 	lastApplyAt = now;
-	const raw = store$1.rootOrderV1;
-	const desired = [];
-	if (raw && typeof raw.length === "number") for (let i = 0; i < raw.length; i++) desired.push(raw[i]);
+	let desired = [];
+	try {
+		const raw = store$1.rootOrderV1;
+		if (raw && typeof raw.length === "number") for (let i = 0; i < raw.length; i++) desired.push(raw[i]);
+	} catch {
+		store$1.rootOrderV1 = [];
+		desired = [];
+	}
 	const desiredSet = new Set(desired);
 	const children = Array.from(rootContainer.children);
 	const byKey = new Map();
@@ -1043,7 +1048,11 @@ const { plugin, flux } = shelter;
 const { observeDom } = plugin.scoped;
 const { GuildStore } = flux.storesFlat;
 const { store } = plugin;
-store.rootOrderV1 ??= [];
+try {
+	store.rootOrderV1 ??= [];
+} catch {
+	store.rootOrderV1 = [];
+}
 const folderCtx = {
 	observeDom,
 	GuildStore
