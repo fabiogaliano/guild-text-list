@@ -2,6 +2,8 @@
 
 [Shelter](https://shelter.uwu.network/) plugin that replaces Discord's server icon sidebar with a text list.
 
+![](readme.png)
+
 ## Development
 
 ```bash
