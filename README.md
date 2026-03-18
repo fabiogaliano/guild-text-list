@@ -2,7 +2,7 @@
 
 [Shelter](https://shelter.uwu.network/) plugin that replaces Discord's server icon sidebar with a text list.
 
-<img src="readme.png" height="400" />
+<p align="center"><img src="readme.png" height="400" /></p>
 
 ## Development
 
