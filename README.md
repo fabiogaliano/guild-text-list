@@ -4,6 +4,16 @@
 
 <p align="center"><img src="readme.png" height="400" /></p>
 
+## Install
+
+1. Open **Shelter Settings** → click **+** (Add Plugin)
+2. Turn **off** the "Local plugin" toggle
+3. Paste the URL:
+   ```
+   https://raw.githubusercontent.com/fabiogaliano/guild-text-list/gh-pages/guild-text-list/
+   ```
+4. Click **Add**
+
 ## Development
 
 ```bash
