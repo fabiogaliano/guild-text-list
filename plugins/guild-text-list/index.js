@@ -8,7 +8,11 @@ const { observeDom } = plugin.scoped;
 const { GuildStore } = flux.storesFlat;
 const { store } = plugin;
 
-store.rootOrderV1 ??= [];
+try {
+  store.rootOrderV1 ??= [];
+} catch {
+  store.rootOrderV1 = [];
+}
 
 const folderCtx = { observeDom, GuildStore };
 

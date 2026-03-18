@@ -102,11 +102,17 @@ export const applyStoredRootOrder = (store) => {
   isApplyingOrder = true;
   lastApplyAt = now;
 
-  // shelter store is a Solid proxy — can't iterate/spread directly, must copy by index
-  const raw = store.rootOrderV1;
-  const desired = [];
-  if (raw && typeof raw.length === "number") {
-    for (let i = 0; i < raw.length; i++) desired.push(raw[i]);
+  // shelter store is a Solid proxy — reading can throw if data is corrupted
+  let desired = [];
+  try {
+    const raw = store.rootOrderV1;
+    if (raw && typeof raw.length === "number") {
+      for (let i = 0; i < raw.length; i++) desired.push(raw[i]);
+    }
+  } catch {
+    // corrupted store data from previous plugin version — reset it
+    store.rootOrderV1 = [];
+    desired = [];
   }
   const desiredSet = new Set(desired);
 
